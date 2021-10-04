@@ -4,6 +4,8 @@ author: "Joy Pham"
 output: html_document
 ---
 
+This is my personal project to practice my newly learned skills on R. It's less than a month since I started, though.
+
 As you may know, we can require our personal data from Spotify. They would send you a report regarding your streaming history, your playlists, subcription and so on. To obtain that report, check this [link](https://support.spotify.com/us/article/data-rights-and-privacy-settings/).
 
 It might take some days before you can receive the data set from Spotify. Once you got your hand on it, why not try some fun analysis?
@@ -96,7 +98,7 @@ stream_in_hours
   
 ```
 
-## Which artist did you spend most time listen to?
+## Which artist did you spend the most time listening to?
 
 You can easily find the answer using the **("gghighlight")** library by filtering your data with specific **artistName**.
 
@@ -125,9 +127,9 @@ Well, it seems that Taylor did dominate my Spotify. Is it make me a Swiftie?
 
 ### JPop
 
-##### Most listened artists
+##### Most listened to artists
 
-I also listen to quite a bunch of J-Pop artists. Let's see which is the most listened one. Here are 7 J-Pop artists I have listened to most.
+I also listen to quite a bunch of J-Pop artists. Let's see which is the most listened to one. Here are 7 J-Pop artists I have listened to most.
 
 ```{r Popular JPop artists, message=FALSE, warning=FALSE}
 # Playback per specific artists: J-Pop
@@ -154,7 +156,7 @@ jpop_artist <- spotify_data %>%
 jpop_artist
 ```
 
-In this competition, the winner is obviously YOASOBI, a hot raising star. Their songs have been extremely popular not only in Japan but also worldwide, especially their iconic '夜に駆ける'.It's a really catchy song but its story, however, is quite a sensitive topic. In my opinion, all of these 7 artists are top notch and super talented. Their songs have the uniqueness that you hardly can find in the US-UK mainstream. My personal favorite is ヨルシカ, though.
+In this competition, the winner is obviously YOASOBI, a hot rising star. Their songs have been extremely popular not only in Japan but also worldwide, especially their iconic '夜に駆ける'. It's a really catchy song but its story, however, is quite a sensitive topic. In my opinion, all of these 7 artists are top-notch and super talented. Their songs have the uniqueness that you hardly can find in the US-UK mainstream. My personal favorite is ヨルシカ, though.
 
 ##### Songs per artist
 
@@ -190,7 +192,7 @@ There are a lot of Aimer's though I mostly skimmed through them. ヨルシカ is
 
 ## Which artist that you listened to most?
 
-Since I'm not sure what a minimum playing hours should be, I will arrange the playing time in descending order and pick top 15 artists. However, you can easily set a minimum threshold by adding a filter.
+Since I'm not sure what minimum playing hours should be, I will arrange the playing time in descending order and pick the top 15 artists. However, you can easily set a minimum threshold by adding a filter.
 
 ```{r Most listened artists, message=FALSE, warning=FALSE}
 most_listened <- spotify_data %>% 
@@ -220,9 +222,9 @@ most_listened
   
 ```
 
-Oh, it's Taylor, again! She definitely rule my Spotify! I just realize that I listened to a lot of game soundtracks. Most of them are from Final Fantasy franchises and NieR series, both are belongs to Square Enix.
+Oh, it's Taylor, again! She definitely rules my Spotify! I just realize that I listened to a lot of game soundtracks. Most of them are from Final Fantasy franchises and NieR series, both belong to Square Enix.
 
-## And, who have the most songs?
+## And, who has the most songs?
 
 Actually, I can guess the result already. But, let's check!
 
@@ -254,9 +256,9 @@ most_songs
 
 Finally, there's a battle that Taylor would lose. Roughly 250 songs from Nobuo Uematsu! Yup, that's Final Fantasy franchises.
 
-## You can also check if times spent on an artist has any relationship with the number of song from him/ her.
+## You can also check if times spent on an artist has any relationship with the number of song from him/her.
 
-As you may know, to check whether 2 variables are related to each other, we would use scatterplot. 
+As you may know, to check whether 2 variables are related to each other, we would use scatterplot.
 
 ```{r Listened time vs. songs, message=FALSE, warning=FALSE}
 # Listened time vs. number of songs
@@ -283,11 +285,11 @@ listenedTimes_songs <- spotify_data %>%
 listenedTimes_songs
 ```
 
-So, it seems that the number of songs has nothing to do with the time listened of an artist. Still, it's quite funny to see Taylor's lonely ring on the top of the graph.
+So, it seems that the number of songs has nothing to do with the listened time. Still, it's funny to see Taylor's lonely ring on the top of the graph.
 
 ## Most listened songs
 
-I guess apart from artists, you would wonder which songs you got hooked the most. Let's check our top 15 most listened songs.
+I guess you would wonder which songs you got hooked on the most. Let's check our top 15 most listened songs.
 
 ```{r Most listened songs, message=FALSE, warning=FALSE}
 # Top 15 most listened songs
@@ -314,11 +316,11 @@ top_songs <- spotify_data %>%
 top_songs
 ```
 
-Though Taylor is my most listened artist, 11/15 of my most listened songs were Japanese, with ドライフラワー(Dried Flower) by 優里(Yuuri) and たぶん(Probably) by YOASOBI outweighted other songs.
+Though Taylor is my most listened artist, 11/15 of my most listening songs were Japanese, with ドライフラワー(Dried Flower) by 優里(Yuuri) and たぶん(Probably) by YOASOBI outweighed other songs.
 
 ## During the day, which hours you spent on Spotify most?
 
-We'll make a plot with total hours to have an overall look which part of the day you got hook in Spotify.
+We'll make a plot with total hours to have an overall look at which part of the day you got hooked on Spotify.
 
 ```{r Playback hour, message=FALSE, warning=FALSE}
 # Playback hour 
@@ -340,11 +342,11 @@ dayHour %>%
 
 ```
 
-Oops, what a surprise! I never think I spent most of my time on Spotify during sleeping hours. It might be when I had to worked on night shifts but still, this is quite shock to see. In brief, it's obvious that I used Spotify all day.
+Oops, what a surprise! I never think I spent most of my time on Spotify during sleeping hours. It might be when I had to work on night shifts but still, this is quite a shock to see. In brief, it's obvious that I used Spotify all day.
 
 ## During the week, what day you listened to Spotify most?
 
-You already have a plot of your listening hours during the day, but how about during the week? You spend most of yout Spotify time on weekdays or weekends? Let's try it with a heatmap.
+You already have a plot of your listening hours during the day, but how about during the week? Do you spend most of your Spotify time on weekdays or weekends? Let's try it with a heatmap.
 
 ```{r Playback day 01, message=FALSE, warning=FALSE}
 # Playback activity during the week
@@ -361,7 +363,7 @@ dayHour %>%
   
 ```
 
-As I almost used Spotify non-stop, my time on the app during the week also reflect the same story though I'm sure it's not healthy at all.
+As I almost used Spotify non-stop, my time on the app during the week also reflects the same story though I'm sure it's not healthy at all.
 
 ```{r Playback day 02, message=FALSE, warning=FALSE}
 weekHour <- dayHour %>% 
@@ -380,22 +382,22 @@ weekHour <- dayHour %>%
 weekHour
 ```
 
-Using a line plot, it can be seen that I spent a bit more time with Spotify on Friday around 22 o'clock than other days. And, in my unhealthy listening pattern, it looks like Monday is my least favorite day.
+Using a line plot, it can be seen that I spent a bit more time with Spotify on Friday around 22 o'clock than on other days. And, in my unhealthy listening pattern, it looks like Monday is my least favorite day.
 
 # It's time to try Spotifyr package
 
-Spotify provided you your listening data. Great! But did you know that they also have an enormous amount of info such as popularity, energy, valence, how "danceable" a songs is, as well as which album it belongs to.
+Spotify provided you your listening data. Great! But did you know that they also have an enormous amount of info such as popularity, energy, valence, how "danceable" a song is, as well as which album it belongs to?
 
 ## Set up
 
-First, set up your Spotify Developer account [here](https://developer.spotify.com/dashboard/) which actually means logging into your current Spotify account. This allows you to make a connection with **Spotify API** and will grant you your `Client Id` and `Client Secret`. In other words, you will use these info to pull your access token into R.
+First, set up your Spotify Developer account [here](https://developer.spotify.com/dashboard/) which actually means logging into your current Spotify account. This allows you to make a connection with **Spotify API** and will grant you your `Client Id` and `Client Secret`. In other words, you will use this info to pull your access token into R.
 
 Once you logged in, Spotify will get you to your dashboard. Next, click `Create an app`, fill in your app name and description to start your project. After creating your app, you would see your `Client Id` and `Client Secret`.
 
 According to the author of `spotifyr`, your Spotify Developer application needs to have a callback url. You can set this to whatever you want that will work with your application, but a good default option is `http://localhost:1410/`. For more information on authorization, visit Spotify [Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/).
 
 Click on **Edit Setting** and input the callback url into `Redirect URIs` field. Click Save, and you're all set! 
-The last thing you have to do is to authorize your R analysis with the Spotify.
+The last thing you have to do is to authorize your R analysis with Spotify.
 
 ```{r get token example, echo=TRUE, message=FALSE, warning=FALSE, eval= FALSE}
 Sys.setenv(SPOTIFY_CLIENT_ID = 'xxxxxxxxxxxxxxxxxxxxx')
@@ -411,7 +413,7 @@ Sys.setenv(SPOTIFY_CLIENT_SECRET = '526559824c6440f39f93b83c0c939f5d')
 get_spotify_access_token()
 ```
 
-## What are your favorite artist?
+## What are your favorite artists?
 
 The data set I'm working with is quite old and some of the information might not be correct. So I'll use `spotifyr` to check again since this package is able to pull data from Spotify in real-time. Also note that the code might take some time to process depending on your connection. Execute `?spotify` or visit the author GitHub in the above link for more information regarding this package.
 
@@ -429,11 +431,11 @@ top_artists_real %>%
   ungroup 
 ```
 
-As you can see from the code, `time_range` was set to `long_term` for I wanted to get the overall result since I first started using the app. However, you can set it either to `short_term` or `medium_term` as well. According to the above table, 6 out of my 10 favorite artists recently are Japanese. The different results between this data and my report from Spotify is due to the time it was recorded. I've been using Spotify for more than 3 years but the report I received was only recorded data from July 2020 to September 2021. Hence, the report merely reflected my recent activities while using the app.
+As you can see from the code, `time_range` was set to `long_term` for I wanted to get the overall result since I first started using the app. However, you can set it either to `short_term` or `medium_term` as well. According to the above table, 6 out of my 10 favorite artists recently are Japanese. The different results between this data and my report from Spotify are due to the time it was recorded. I've been using Spotify for more than 3 years but the report I received was only recorded data from July 2020 to September 2021. Hence, the report merely reflected my recent activities while using the app.
 
 ## What are your favorite tracks?
 
-For the result of my recent favorite artists is a lot different from my spotify data, I want to check if my most listened tracks are similar to the old data set.
+For the result of my recent favorite artists is a lot different from my Spotify data, I want to check if my most listening tracks are similar to the old data set.
 
 ```{r Top favorite songs, message=FALSE, warning=FALSE}
 #Top recent favorite songs
@@ -454,7 +456,7 @@ The list is far different from my Spotify record since it includes my entire lis
 
 ## What are the most popular tracks in your liked songs/ playlist?
 
-As `spotifyr` can pull the popularity of a song, we can do an analysis to see what are the most popular tracks on your liked songs or a particular playlist. The popularity of a song is measured on the 0-100 scale, with 100 as super hit. Each of your playlist has its own unique id which you have to use Spotify web play to obtain. Or, you can use `get_user_playlists` function to obtain the id of your playlists.
+As `spotifyr` can pull the popularity of a song, we can do an analysis to see what are the most popular tracks on your liked songs or a particular playlist. The popularity of a song is measured on the 0-100 scale, with 100 as a super hit. Each of your playlists has its own unique id which you have to use Spotify web play to obtain. Or, you can use `get_user_playlists` function to obtain the id of your playlists.
 
 **Note**: There is no playlist id for *Liked songs* but we can work around by selecting all tracks in your "Liked songs" then drag them to a new and empty playlist.
 
@@ -480,12 +482,13 @@ likedSongs <- get_playlist_audio_features(username, playlist_uris)
 ```
 
 
-Take your time analyze the result 'cause you'll be surprised by the vast information of this data set. As, I have 548 tracks and with the total of 61 variables, there are lots of things I can do. 
+Take your time to analyze the result 'cause you'll be surprised by the vast information of this data set. As I have 548 tracks and a total of 61 variables, there are lots of things I can do. 
 
-Once you've done, let's get back to out initial question *What are the most popular tracks in your liked songs/ playlist?* using `track.popularity` variable. I guess songs with popularity over 80 are pretty much top hits, right?
+Once you've done, let's get back to our initial question *What are the most popular tracks in your liked songs/ playlist?* using `track.popularity` variable. I guess songs with popularity over 80 are pretty much top hits, right?
 
 
 ```{r Most popularity, message=FALSE, warning=FALSE}
+# Top 15 popular songs
 likedSongs %>% 
   group_by(track.name) %>% 
   filter(track.popularity > 80) %>% 
@@ -512,9 +515,9 @@ Well, none of them belongs to Taylor Swift. ;P
 
 ## What your does you taste of music tell about your personality?
 
-I believe that one's taste of music reflects his/ her personality. Since our `likedSongs` data has some interesting variables such as *valence* and *energy*, I'm curious what my tracks tell about me.
+I believe that one's taste in music reflects his/ her personality. Since our `likedSongs` data has some interesting variables such as *valence* and *energy*, I'm curious what my tracks tell about me.
 
-Here are the definition from Spotify regarding these 2 variables:
+Here is the definition from Spotify regarding these 2 variables:
 
 *`valence`: _A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry)._
 
@@ -524,6 +527,7 @@ You can check other variables [here](https://developer.spotify.com/documentation
 
 
 ```{r Energy and valence, message=FALSE, warning=FALSE}
+# Energy and valence, liked songs
 likedSongs %>% 
   ggplot(aes(x= valence, y= energy, color= track.name)) +
   geom_jitter(show.legend = FALSE) +
@@ -536,13 +540,14 @@ likedSongs %>%
   theme_light()
 ```
 
-As seen from the plot, most of my favorite songs are on the left side, which means they are sad, depressed, or angry. However, many of those solemn tracks have high energy which can be interpreted as fast, loud, and noisy. Yet, there are still many tracks on the upper right, which represents the 'happy valley'. In brief, my taste of music tells me that I'm quite a negative person. Well, I'm not so sure about it anyway.
+As seen from the plot, most of my favorite songs are on the left side, which means they are sad, depressed, or angry. However, many of those solemn tracks have high energy which can be interpreted as fast, loud, and noisy. Yet, there are still many tracks on the upper right, which represents the 'happy valley'. In brief, my taste in music tells me that I'm quite a negative person. Well, I'm not so sure about it anyway.
 
 ## How about your workout playlist?
 
-I think many of us would have a workout playlist to push ourselves when sweating out. Mine is quite a sassy, naughty and fun, *Workout Playlist for hot girls 👅* by a Spotify user named *Stormy Chocada*. Let's check how energetic and 'danceable' it is.
+I think many of us would have a workout playlist to push ourselves when sweating out. Mine is quite a sassy, naughty, and fun, *Workout Playlist for hot girls 👅* by a Spotify user named *Stormy Chocada*. Let's check how energetic and 'danceable' it is.
 
 ```{r Hot girls workout, message=FALSE, warning=FALSE}
+# Hot girls workout
 username = "jp.joy.7"
 playlist_uris ="3rMa2dmPtINY46bimugyrO"
 
