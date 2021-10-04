@@ -40,13 +40,6 @@ stream00 <- fromJSON("Path to your file", flatten = TRUE)
 ```
 
 
-```{r JSON convert, message=FALSE, warning=FALSE, include=FALSE}
-## Add 2 JSON files from Spotify data
-stream00 <- fromJSON("/Users/joypham/LearningData/LearningR/my_spotify/MyData/StreamingHistory0.json", flatten = TRUE)
-
-stream01 <- fromJSON("/Users/joypham/LearningData/LearningR/my_spotify/MyData/StreamingHistory1.json", flatten = TRUE)
-```
-
 Since I have 2 files in my data, I have to merge them into one full file before starting my analysis.
 
 ```{r Merging files, echo=TRUE, message=FALSE, warning=FALSE}
@@ -406,12 +399,6 @@ Sys.setenv(SPOTIFY_CLIENT_SECRET = 'xxxxxxxxxxxxxxxxxxxxx')
 access_token <- get_spotify_access_token()
 ```
 
-```{r Get access token, include=FALSE}
-Sys.setenv(SPOTIFY_CLIENT_ID = 'c344451380c543e58db878126d4d7ee6')
-Sys.setenv(SPOTIFY_CLIENT_SECRET = '526559824c6440f39f93b83c0c939f5d')
-
-get_spotify_access_token()
-```
 
 ## What are your favorite artists?
 
